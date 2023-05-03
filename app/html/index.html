@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/index.css">
+    <link rel="icon" href="/Ethereum-ETH-icon.png" type="image/icon type">
+    <title>TT2 Exchanger</title>
+</head>
+
+<body>
+    <div class="container right-panel-active">
+        <!-- Exchange -->
+        <div class="container__form container--signup">
+            <div class="selector">
+                <div class="but" id="btn_frm10">Data</div>
+                <div class="but" id="btn_frm11">Buy Token</div>
+                <div class="but" id="btn_frm12">Rate</div>
+                <div class="but" id="btn_frm13">Buy ETH</div>
+            </div>
+            <div class="partial_form visible" id="frm10">
+                <div action="#" class="form">
+                    <h2 class="form__title">Exchange Data</h2>
+                    <p id="exRate" class="link no-margin">Exchange Rate: </p>
+                    <p id="exEthBalance" class="link no-margin">Exchange Eth Balance: </p>
+                    <p id="exVaultBalance" class="link no-margin">Vault Token Balance: </p>
+                    <p id="exFeesCollected" class="link no-margin">Fees Collected: </p>
+                    <button class="btn" id="exBtnData">Check</button>
+                </div>
+            </div>
+            <div class="partial_form" id="frm11">
+                <div action="#" class="form">
+                    <h2 class="form__title">Buy Token</h2>
+                    <input type="text" placeholder="Amount to buy" class="input" id="txtAmountBuy" />
+                    <input type="text" placeholder="Ethers sended" class="input" id="txtEthAmount" />
+                    <button class="btn" id="exBtnBuyToken">Transact</button>
+                </div>
+            </div>
+            <div class="partial_form" id="frm12">
+                <div action="#" class="form">
+                    <h2 class="form__title">Rate</h2>
+                    <input type="text" placeholder="Amount to buy" class="input" id="txtAmountCheck" />
+                    <p id="exTokenPrice" class="link no">Value for Tokens: </p>
+                    <button class="btn" id="exBtnCheckPrice">Check Price</button>
+                </div>
+            </div>
+            <div class="partial_form" id="frm13">
+                <div action="#" class="form">
+                    <h2 class="form__title">Buy ETH</h2>
+                    <input type="text" placeholder="Tokens to sell" class="input" id="txtAmountSell" />
+                    <button class="btn" id="exBtnSellToken">Sell Tokens</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ERC20 -->
+        <div class="container__form container--signin">
+            <div class="selector">
+                <div class="but" id="btn_frm1">Connect</div>
+                <div class="but" id="btn_frm2">Allow</div>
+                <div class="but" id="btn_frm3">Balance</div>
+            </div>
+            <div class="partial_form visible" id="frm1">
+                <div action="#" class="form" id="form2">
+                    <h2 class="form__title">Connect to MetaMask</h2>
+                    <p id="accountAddress" class="link">Account address: </p>
+                    <p id="accountBalance" class="link">Account balance: </p>
+                    <p id="accountTokenBalance" class="link">Token balance: </p>
+                    <button class="btn" id="connectButton">Connect</button>
+                </div>
+            </div>
+            <div class="partial_form" id="frm2">
+                <div action="#" class="form" id="form3">
+                    <h2 class="form__title">Allow Account</h2>
+                    <input type="text" placeholder="Account to Allow" class="input" id="txtAllowAccount" />
+                    <input type="text" placeholder="Amount of Token" class="input" id="txtAllowValue"/>
+                    <button class="btn" id="allowButton">Transact</button>
+                </div>
+            </div>
+            <div class="partial_form" id="frm3">
+                <div action="#" class="form" id="form3">
+                    <h2 class="form__title">Get Balance of Account</h2>
+                    <input type="text" placeholder="Account to Check Balance" class="input" id="txtBalanceAccount" />
+                    <p id="lblBalanceBalance" class="link">Token balance: </p>
+                    <button class="btn" id="getBalanceButton">Get Balance</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Overlay -->
+        <div class="container__overlay">
+            <div class="overlay">
+                <div class="overlay__panel overlay--left">
+                    <button class="btn" id="signIn">ERC20</button>
+                </div>
+                <div class="overlay__panel overlay--right">
+                    <button class="btn" id="signUp">Exchange</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
+    <script src="https://cdn.ethers.io/lib/ethers-5.0.umd.min.js" type="text/javascript"></script>
+    <script class="u-script" type="text/javascript" src="/index.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="/erc20.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="/exchange.js" defer=""></script>
+</body>
+
+</html>

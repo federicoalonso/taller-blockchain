@@ -1,0 +1,743 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for contracts\Exchange.sol</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">contracts/</a> Exchange.sol
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>59/59</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>50/50</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>11/11</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>77/77</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-yes">20×</span>
+<span class="cline-any cline-yes">19×</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">42×</span>
+<span class="cline-any cline-yes">42×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">42×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">//SPDX-License-Identifier: MIT
+pragma solidity 0.8.16;
+&nbsp;
+import "./interfaces/IERC20.sol";
+&nbsp;
+/**
+Consultas:
+1- Los que devuelven cuanto por 1 token o por x cantidad de eth tienen el fee incluido?
+2- La duda de las cuentas
+3- En el contructor Al momento de ser seteada la cuenta indicada en _tokenVault debe tener un
+balance de tokens superior al monto indicado en _tokenAmount
+4- Si alguien me vende token, se los queda el contrato? me jode sino el amount del aprove, que se va bajando
+5- Podemos usar interfaz o con el metodo visto en clase.
+6- Se esperan eventos?
+7- Mensajes de error en el erc20
+8- Front solo para comprar y vender token? o admin tmb?
+ */
+&nbsp;
+ /// @notice This contact follows the standard for ERC-20 fungible tokens
+ /// @dev Comment follow the Ethereum ´Natural Specification´ language format (´natspec´)
+ /// Referencia: https://docs.soliditylang.org/en/v0.8.16/natspec-format.html  
+contract Exchange {
+&nbsp;
+    /// STATE VARIABLES
+    uint8 public decimals;
+    uint256 public feePercentage;
+    address public owner;
+    address public tokenVault;
+    address public erc20Contract;
+    uint256 public invariant;
+    uint256 public feesCollected;
+&nbsp;
+    /// MODIFIERS
+&nbsp;
+    /**
+    * @notice Check if the method is called by the owner.
+    * @dev Throw if the sender is not the owner.
+    */
+    modifier onlyOwner() {
+        require(msg.sender == owner, "Not authorized");
+        _;
+    }
+&nbsp;
+    /**
+     * @notice Initialize the state of the contract
+     * @dev Throw if `_tokenVault` is the zero address or is a contract.
+     * @dev Throw if `_erc20Contract` is the zero address or is not a contract.
+     * @dev Throw if `_tokenVault` has fewer tokens than `_tokenAmount`
+     * @param _tokenVault sets the address where the tokens will be deposited at the moment 
+     * to initialize the liquidity pool. Tokens must be withdrawn from the account of the 
+     * protocol owner.
+     * @param _erc20Contract sets the address of the ERC20 contract that drives the logic
+     * of the tokens to be exchanged.
+     * @param _tokenAmount is the amount of tokens with which the Exchange is initialized.
+     */
+    constructor(address _tokenVault, address _erc20Contract , uint256 _tokenAmount) payable {
+        require(_tokenVault != address(0), "Invalid address _tokenVault");
+        require(!isContract(_tokenVault), "_tokenVault cannot be a contract");
+        require(_erc20Contract != address(0), "_erc20Contract cannot be zero address");
+        require(isContract(_erc20Contract), "_erc20Contract is not a contract");
+        require(_tokenAmount &gt; 0, 'Invalid _tokenAmount value');
+        require(msg.value &gt; 0, 'Invalid ether value');
+&nbsp;
+        uint256 tokenVaultBalance = IERC20(_erc20Contract).balanceOf(_tokenVault);
+&nbsp;
+        require(tokenVaultBalance &gt;= _tokenAmount, "Insufficient tokens in the vault");
+&nbsp;
+        IERC20(_erc20Contract).transferFrom(msg.sender, _tokenVault, _tokenAmount);
+        decimals = 18;
+        feePercentage = 3 ether / 100;
+        feesCollected = 0;
+        tokenVault = _tokenVault;
+        erc20Contract = _erc20Contract;
+        invariant = msg.value * (_tokenAmount + tokenVaultBalance);
+        owner = msg.sender;
+    }
+&nbsp;
+    /** 
+     * @notice Returns the amount of ethers needed to buy the amount of tokens
+     * indicated in the _tokenAmount parameter.
+     * @dev Throw if `_tokenAmount` is fewer than zero.
+     * @param _tokenAmount The number of tokens I want to know its value.
+     * @return _amount It is a uint256 number.
+     */
+    function calculateEtherAmount(uint256 _tokenAmount) public view returns (uint256 _amount) {
+        require(_tokenAmount &gt; 0, "Invalid _tokenAmount value");
+        uint256 tokVaultBalance = IERC20(erc20Contract).balanceOf(tokenVault);
+        uint256 ethBalance = address(this).balance - feesCollected;
+        uint256 newTokenBalance = tokVaultBalance - _tokenAmount; 
+        uint256 preResult = invariant / newTokenBalance;
+        _amount = preResult - ethBalance;
+        return _amount;
+    }
+&nbsp;
+    /** 
+     * @notice Returns the number of tokens that are obtained for one ether 
+     * at the time of the query.
+     * @return amount It is a uint256 number.
+     */
+    function getExchangeRate() public view returns (uint256 amount) {
+        uint256 token_before = IERC20(erc20Contract).balanceOf(tokenVault);
+        uint256 eth_before = address(this).balance - feesCollected;
+        amount = token_before - (invariant / (eth_before + 1 ether));
+        return amount;
+    }
+&nbsp;
+    /**
+     * @notice Method that allows to acquire tokens in exchange for Ethers.
+     * @dev Throw if `_amountToBuy` is inssufficient or is fewer than zero.
+     * @dev Must return the remaining Ethers to the sender.
+     * @param _amountToBuy The number of tokens I want to buy.
+     */
+    function buyToken(uint256 _amountToBuy) public payable {
+        require(_amountToBuy &gt; 0, "Invalid _amountToBuy value");
+        uint256 tokVaultBalance = IERC20(erc20Contract).balanceOf(tokenVault); 
+        uint256 ethBalance = address(this).balance - feesCollected - msg.value; 
+        uint256 newTokenBalance = tokVaultBalance - _amountToBuy;
+        uint256 preResult = invariant / newTokenBalance;
+        uint256 result = preResult - ethBalance;
+        uint256 charge = result;
+        uint256 fee = charge * feePercentage / 1 ether;
+        uint256 total = charge + fee;
+        require(msg.value &gt;= total, "Insufficient ethers");
+&nbsp;
+        feesCollected += fee;
+        uint256 change = msg.value - total;
+        payable(msg.sender).transfer(change);
+        IERC20(erc20Contract).transferFrom(tokenVault, msg.sender, _amountToBuy);
+    }
+&nbsp;
+    /* 
+     * @notice Must change the number of tokens indicated by parameters by the 
+     * corresponding number of ethers.
+     * @dev Throw if `_amountToExchagne` is fewer than zero or if the account
+     * does not have sufficient amount of tokens.
+     * @param _amountToExchagne The number of tokens I want to sell.
+     */
+    function buyEther(uint256 _amountToExchange) public {
+        require(IERC20(erc20Contract).balanceOf(msg.sender) &gt;= _amountToExchange, "Insufficient balance");
+        require(_amountToExchange &gt; 0, "Invalid _amountToExchange value");
+&nbsp;
+        uint256 eth_before = address(this).balance - feesCollected;
+        uint256 token_before = IERC20(erc20Contract).balanceOf(tokenVault);
+        uint256 token_now = token_before + _amountToExchange;
+        uint256 eth_now = invariant / token_now;
+        uint256 charge = eth_before - eth_now;
+&nbsp;
+        uint256 fees = charge * feePercentage / 1 ether;
+&nbsp;
+        uint256 pay = charge - fees;
+        feesCollected += fees;
+&nbsp;
+        IERC20(erc20Contract).transferFrom(msg.sender, tokenVault, _amountToExchange);
+        payable(msg.sender).transfer(pay);
+    }
+&nbsp;
+    /** 
+     * @notice Establishes the percentage that is charged for each operation.
+     * @dev Only the owner can execute this method.
+     * @dev Throw if `_percentage` is fewer than zero.
+     * @param _percentage The percentage to be set.
+     */
+    function setFeePercentage(uint256 _percentage) public onlyOwner() {
+        require(_percentage &gt; 0, "Invalid _feePercentage value");
+        feePercentage = _percentage;
+    }
+&nbsp;
+    /** 
+     * @notice Allows only the owner of the protocol to increase the liquidity 
+     * of the pool by depositing ethers and tokens at the same time.
+     * @dev Only the owner can execute this method.
+     * @dev Throw if the value of Ethers received is zero.
+     * @dev Throw if the owner account has insufficient amount of tokens.
+     */
+    function deposit() public payable onlyOwner() {
+        require(msg.value &gt; 0, "No ethers deposited");
+        uint256 tokenAmount = IERC20(erc20Contract).balanceOf(tokenVault);
+        uint256 ethAmount = address(this).balance;
+        uint256 amount = tokenAmount - (invariant / (ethAmount + msg.value));
+        require(IERC20(erc20Contract).balanceOf(owner) &gt;= amount, "Insufficient balance");
+&nbsp;
+        IERC20(erc20Contract).transferFrom(msg.sender, tokenVault, amount);
+        invariant = (address(this).balance - feesCollected) * IERC20(erc20Contract).balanceOf(tokenVault);
+    }
+&nbsp;
+    /** 
+     * @notice Establishes the address of the account from which the tokens will be 
+     * obtained to make the exchanges.
+     * @dev Only the owner can execute this method.
+     * @dev Throw if `_tokenVault` the zero account or is a contract.
+     * @dev Throw if `_tokenVault` has not token balance.
+     * @dev Throw if the contract has not allowance to spend tokenVault tokens.
+    */
+    function setTokenVault(address _tokenVault) public onlyOwner() {
+        require(_tokenVault != address(0), "Invalid address _tokenVault");
+        require(!isContract(_tokenVault), "_tokenVault cannot be a contract");
+        uint256 vaultBalance = IERC20(erc20Contract).balanceOf(_tokenVault);
+        require(vaultBalance &gt; 0, "_tokenVault has no balance");
+        require(IERC20(erc20Contract).allowance(_tokenVault, address(this)) &gt; 0, "Invalid tokenVault address");
+&nbsp;
+        tokenVault = _tokenVault;
+        invariant = (address(this).balance - feesCollected) * vaultBalance;
+    }
+&nbsp;
+    /**
+     * @notice It must allow only the owner of the protocol to withdraw the
+     * profits obtained by the fees.
+     * @dev Only the owner can execute this method.
+     * @dev Throw if the the fees collected are less than 0.5 Ethers.
+    */
+    function withdrawFeesAmount() public onlyOwner() {
+        require(feesCollected &gt;= 0.5 ether, "Insufficient amount of fees");
+        payable(msg.sender).transfer(feesCollected);
+        feesCollected = 0;
+    }
+&nbsp;
+    /// PRIVATE FUNCTIONS
+    /// @notice If an address is a contract returns true, otherwise, false
+    /// @param _address The address that we want to know if it's a contract
+    function isContract(address _address) private view returns (bool) {
+        uint32 size;
+        assembly {
+            size := extcodesize(_address)
+        }
+        return size &gt; 0;
+    }
+}</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sun Nov 27 2022 18:43:38 GMT-0300 (hora estándar de Uruguay)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>
